@@ -14,7 +14,8 @@ def get_states():
     return jsonify([obj.to_dict() for obj in state_obj.values()])
 
 
-@app_views.route('/states/<state_id>', methods=['GET'], strict_slashes=False)
+@app_views.route('/states/<string:state_id>',
+        methods=['GET'], strict_slashes=False)
 def get_states_id(state_id):
     """Retrieves a State object by ID"""
     state = storage.get("State", state_id)
